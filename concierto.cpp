@@ -52,3 +52,4 @@ int main() {
 
     return 0;
 }
+//debe usar SWITCH -CASE
