@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-void convertirAEfectivo(double cantidad) {
+void convertirAEfectivo(double cantidad) {  // DONDE SE LLAMA ESTA FUNCION
     int billetes[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
     int monedas[] = {50, 20, 10, 5, 2, 1};
     
@@ -11,7 +11,7 @@ void convertirAEfectivo(double cantidad) {
     int cantidad_entera = static_cast<int>(round(cantidad * 100));
 
     // Procesar los billetes
-    for (int i = 0; i < sizeof(billetes) / sizeof(billetes[0]); i++) {
+    for (int i = 0; i < sizeof(billetes) / sizeof(billetes[0]); i++) { // QUE NOS INDICA ESTA LINEA DE CODIGO
         int num_billetes = cantidad_entera / (billetes[i] * 100);
         if (num_billetes > 0) {
             std::cout << num_billetes << " billete(s) de " << billetes[i] << " euros" << std::endl;
