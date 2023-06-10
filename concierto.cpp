@@ -1,55 +1,49 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
-int main() {
-    // Precios para cada ubicación
-    double precios[] = {50.00, 80.00, 120.00, 160.00};
-    string ubicaciones[] = {"general", "preferencia", "platea", "vip"};
-
-    // Variables para almacenar la ubicación elegida y el número de entradas
-    string ubicacion;
-    int num_entradas;
-
-    // Solicitar al usuario la ubicación y el número de entradas
-    cout << "Ingrese la ubicacion (general, preferencia, platea o vip): ";
-    cin >> ubicacion;
-    cout << "Ingrese la cantidad de entradas: ";
-    cin >> num_entradas;
-
-    // Buscar el índice de la ubicación elegida
-    int indice = -1;
-    for (int i = 0; i < 4; i++) {
-        if (ubicaciones[i] == ubicacion) {
-            indice = i;
+int main(){
+    int ubicacion, cantidad, precio, total;
+    string bebida;
+    
+    cout<<"************SELECCIONE LA UBICACION DE SU PREFERENCIA:*************"<<endl;
+    cout<<"1.GENERAL - COSTO DE S/ 50" <<endl;
+    cout<<"2.PREFERNECIAL - COSTO DE S/ 80" <<endl;
+    cout<<"3.PLATA - COSTO DE S/ 120" <<endl;
+    cout<<"4.VIP - COSTO DE S/ 160" <<endl;
+    cout<<"ELIJA LA UBICAION DE SU AGRADO: ";
+    cin>>ubicacion;
+    
+    cout<<"INGRESE LA CANTIDAD DE ENTRADAS: ";
+    cin>>cantidad;
+    
+    switch(ubicacion){
+        case 1:
+            precio = 50;
             break;
-        }
+        case 2:
+            precio = 80;
+            break;
+        case 3:
+            precio = 120;
+            break;
+        case 4:
+            precio = 160;
+            cout<<"ENHORABUENA USTED ELIGIO VIP, FELICITACIONES ELIJA SU BEBIDA (GASEOSA, CERVEZA, AGUA): ";
+            cin >>bebida;
+            break;
+        defaut:
+            cout<<"OPCION INVALIDA"<<endl;
+            return 0;
+            
     }
-
-    // Calcular el costo total basado en la ubicación elegida y el número de entradas
-    double costo_total;
-    if (indice != -1) {
-        costo_total = num_entradas * precios[indice];
-        if (ubicacion == "vip") {
-            string bebida;
-            cout << "Elija su bebida (gaseosa, cerveza o agua): ";
-            cin >> bebida;
-            if (bebida == "gaseosa" || bebida == "cerveza") {
-                costo_total += 10.00;
-            } else if (bebida == "agua") {
-                costo_total += 5.00;
-            }
-        }
-    } else {
-        // Si la ubicación no es válida, imprimir un mensaje de error
-        cout << "Ubicacion no valida" << endl;
-        return 0;
+    
+    total = precio * cantidad;
+    cout<<" EL TOTAL DE PAGAR ES: " << total << endl;
+    
+    if (ubicacion == 4){
+      cout<<"BEBIDA ELEGIDA: "<< bebida << endl;
     }
-
-    // Imprimir el costo total
-    cout << "Total a pagar: $" << costo_total << endl;
-
     return 0;
+    
 }
-//debe usar SWITCH -CASE
+    
